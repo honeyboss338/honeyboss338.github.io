@@ -1,0 +1,44 @@
+@import "base";
+
+#press_mini {
+  height: 250px;
+  background-color: lightblue;
+  margin: 20px;
+  @include border-radius(10px);
+  #press_all {text-align: center;}
+}
+
+#presses {
+  h3 {
+    vertical-align: top;
+    text-align: center;
+  }  
+}
+
+blockquote {
+  border: 0;
+  p {margin: 0;}
+  cite {
+    text-align: right;
+    font-size: 16px;
+  }
+  .avatar {
+    margin: 0 10px;
+    @include circle(30px, 2px);
+  }
+}
+
+/* Quote Mark Styles */
+blockquote a:before {
+  color: #5a7c87;
+  display: block;
+  font-size: 500%;
+  width: 50px;
+}
+
+/* Left Quote */
+blockquote a:before {
+  content: '"';
+  height: 40px;
+  margin-left: -0.55em;
+}

@@ -1,0 +1,58 @@
+//================================
+//  Home Banner
+//================================
+@media (max-width: 939px) {
+  #home_banner {
+    background-size: cover; 
+  }
+}
+
+$cloud_time: 34s;
+$fly_time: 2s;
+@media (min-width: 940px) {
+  #home_banner {
+    height: 360px;
+    padding: 10px;
+    -webkit-animation: animate-cloud $cloud_time linear infinite;
+    -moz-animation: animate-cloud $cloud_time linear infinite;
+    -ms-animation: animate-cloud $cloud_time linear infinite;
+    -o-animation: animate-cloud $cloud_time linear infinite;
+    animation: animate-cloud $cloud_time linear infinite;
+    //background-size: initial;
+    background-repeat-x: repeat; 
+    img {
+      position: relative;
+      top: 100px;
+      -webkit-animation: animate-bot $fly_time ease-in-out infinite;
+      -moz-animation: animate-bot $fly_time ease-in-out infinite;
+      -ms-animation: animate-bot $fly_time ease-in-out infinite;
+      -o-animation: animate-bot $fly_time ease-in-out infinite;
+      animation: animate-bot $fly_time ease-in-out infinite;
+    }
+  } 
+}
+
+#home_banner {
+  text-align: center;
+  padding: 40px;
+  background-color: #049ec4;
+  background-image: url(image-path("cloud4.png"));
+  background-position: 50% 0;
+  #banner_txt {
+    h1, h2, h3, h4 {
+      text-shadow: 0 0 20px brown;
+      color: yellow;
+      margin: 0;
+      padding: 0;
+      
+    }
+    h1 {
+      padding: 20px 0;
+      font-size: 4em;
+      line-height: 1em;
+    }
+    h2 {
+
+    }
+  }
+}

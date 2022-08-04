@@ -1,0 +1,95 @@
+@import "base";
+
+//==============================
+//  index
+//==============================
+.deliver_type {
+  text-align: center;
+  background-color: white;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  &:hover {
+    background-color: wheat;
+  }
+  img {
+    height: 150px;
+  }
+}
+
+#price_table_wrap {
+  text-align: center;
+  #price_table {
+    max-width: 500px;
+    margin-right: 0 auto;
+  }
+}
+
+.items_table {
+  //border: 0;
+  td {font-size: 14px;}
+  tr {
+    background-color: inherit !important;
+  }
+  margin-bottom: 0;
+}
+//==============================
+//  form
+//==============================
+select {
+  height: 30px;
+  font-size: 20px;
+  border: 1px solid #ccc;
+}
+
+.ui-datepicker-calendar tr {
+  background: #fff !important;
+}
+
+.deliver_info {
+  legend {
+    background-color: SandyBrown;
+    @include border-radius(2px);
+  }
+  background-color: wheat;
+  @include border-radius(4px);
+}
+
+#deliver_note {
+  color: red;
+}
+
+#item_rows .columns {
+  padding-right: 0;
+}
+
+#price_tab_wrap {
+  text-align: center;
+  #price_tab {
+    img {
+      max-width: 500px;
+      @media (max-width: 509px) {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+#deliver_rule {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: lavender;
+  legend {
+    background-color: lightskyblue;
+  }
+}
+
+#deliver_table {
+  .info {line-height: 1.8em;}
+  .status {padding: 1px 2px;}
+  .status_open    {background-color: yellowgreen;}
+  .status_checked {background-color: goldenrod;}
+  .status_produce {background-color: goldenrod;}
+  .status_deliver {background-color: gold;}
+  .status_done    {background-color: grey;}
+  .status_debt    {background-color: palevioletred;}
+}

@@ -26,13 +26,24 @@ description: >- # this means to ignore newlines until "baseurl:"
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+permalink: /:title/
+canonical: "https://www.honeyboss.com"
 twitter_username: jekyllrb
 github_username:  jekyll
+
+# Stylesheet https://jekyllrb.com/docs/assets/
+sass:
+    style: compressed
+    sass_dir: _sass
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-coffeescript
+
+logo:               'assets/img/logo.png'
+background:         'assets/img/bg.png'
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -42,14 +53,26 @@ plugins:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - _site
+  - src
+  - vendor
+  - CNAME
+  - LICENSE
+  - Rakefile
+  - files
+  - 1-build-image.sh 
+  - 2-start-container.sh
+
+  

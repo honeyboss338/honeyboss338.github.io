@@ -1,0 +1,162 @@
+//==================================
+//  Boot-up actions
+//==================================
+//calculate sum of price
+var product_list = <%= Setting.product_list %>;
+var volumn_list = <%= Setting.volumn_list %>;
+var price_list = <%= Setting.price_list %>;
+
+$(function() { 
+  if ($("#deliver_submit").length > 0) {
+    sum_price();
+    today_deliver_note();
+  }
+});
+
+$(document).on('change', "#item_rows select", function() {
+  sum_price();
+});
+
+$(document).on('change', "#deliver_deliver_at", function() {
+  today_deliver_note();
+});
+
+$(document).on('keyup', "#item_rows input", function() {
+  sum_price();
+});
+
+$(document).on('click', "#add_item", function() {
+  sum_price();
+});
+
+$(document).on('click', ".remove_nest", function() {
+  $(this).closest('.row').remove();
+  sum_price();
+});
+
+//==================================
+//  Call while Deliver Today
+//==================================
+
+function today_deliver_note() {
+  if ($("deliver_deliver_at").length > 0) {
+    var t = document.getElementById('deliver_deliver_at').selectedIndex; //$("#deliver_deliver_at").attr("selectedIndex");
+    //console.log(t);
+    if (t == 0) {
+      $(".today_note").show();
+    } else {
+      $(".today_note").hide();
+    }
+  }
+}
+
+//==================================
+//  Calculate price functions
+//==================================
+function cal_price() {
+  total_price = 0;
+  $("#item_rows .row").each(function(i) { 
+    //raw
+    name = $(this).find('.deliver_items_name select').val();
+    vol = $(this).find('.deliver_items_vol select').val();
+    num = $(this).find('.deliver_items_num select').val();
+    //idx
+    name_idx = $.inArray(name, product_list);
+    vol_idx = $.inArray(vol, volumn_list);
+    //price
+    if ((name_idx >= 0) & (vol_idx >= 0)) {
+      price = price_list[name_idx][vol_idx];
+      total_price += price * num;
+      $(this).find('.single_sum').text(price + 'x' + num + '=' + price*num);
+    }
+  });
+  return total_price;
+}
+
+function cal_portage() {
+  portage = 0;
+  tnum = 0;
+  $("#item_rows .row").each(function(i) { 
+    num = $(this).find('.deliver_items_num select').val();
+    tnum = tnum + parseInt(num);
+  });
+  b = tnum % 12;
+  a = (tnum - b)/12;
+  
+  if (b > 5) {
+    portage = (a+1) * 270;
+  } else if (b == 0) {
+    portage = a * 270;
+  } else {
+    portage = a * 270 + 210;
+  }
+  return portage;
+}
+
+function pass_min(total_price) {
+  $("#total_price").html();
+  min_deliver_price = $("#price_tab_wrap").attr("minprice");
+  if (total_price >= min_deliver_price) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function sum_price() {
+  //console.log(total_price);
+  total_price = cal_price();
+  if ($("#price_tab_wrap").attr("distance") == "remote") {
+    total = total_price + cal_portage();
+    $("#total_price").text("商品" + total_price + " + 運費" + portage + " = 總共" + total );
+    $("#total_price").css("color", "green");
+  } else if (pass_min(total_price)) {
+    $("#total_price").text(total_price + " (已超過最低消費，可以外送了！)");
+    $("#total_price").css("color", "green");
+    //$("#deliver_submit").attr("disabled", false);
+  } else {
+    $("#total_price").text(total_price + " (尚未達到外送最低消費喔～)");
+    $("#total_price").css("color", "red");
+    //$("#deliver_submit").attr("disabled", true);
+  }
+}
+
+$(document).on('click', "#deliver_submit", function(e) {
+  total_price = cal_price();
+  //Emphasize empty info
+  $("input.required").each(function() { 
+    console.log($(this).val());
+    if($(this).val() == "") {
+      $(this).addClass("redborder");
+    }
+  });
+
+  if (!pass_min(total_price)) {
+    e.preventDefault();
+    alert("尚未達到外送最低消費喔～");
+  }
+});
+
+
+//==================================
+//  Deliver Admin refresh
+//==================================
+$(function(){ 
+  $("#knob").knob({
+    'min':0,
+    'max':180,
+    "width":30,
+    "height":30,
+    "data-displayInput":false
+  });
+});
+
+function updateTimer(){
+  var now = $('#knob').attr("value") - 1;
+  $('#knob').attr("value", now);
+  $('#knob').val(now).trigger('change');
+  //console.log(now);
+}
+setInterval('updateTimer()', 1000);
+
+

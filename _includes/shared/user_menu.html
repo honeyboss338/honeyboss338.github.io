@@ -1,0 +1,28 @@
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <li class="has-dropdown" id="user_menu">
+      <%= link_to("管理者後台", "#") %>
+      <ul class="dropdown">
+        <li><%= link_to("訂單管理", cpanel_delivers_path) %></li>
+        <li><%= link_to("網站管理", switches_path) %></li>
+        <li><%= link_to("客戶管理", users_path) %></li>
+        <li><%= link_to("部落格與媒體", presses_path) %></li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+  <% end %>
+  <li><%= link_to("我的帳號", user_path(current_user)) %></li>
+<% else %>
+  <li><%= link_to("登入", new_user_session_path) %></li>
+  <li><%= link_to("註冊", new_user_session_path) %></li>
+  <!-- hidden modal -->
+  <div id="loginModal" class="reveal-modal small">
+    <h3>請選擇登入方法</h3>
+    <a class="close-reveal-modal" onClick="closeModal()">&#215;</a><br>
+    <%= link_to("使用Facebook登入", user_omniauth_authorize_path(:facebook), :class => "zocial facebook") %><br>
+    <%= link_to("使用Google登入", user_omniauth_authorize_path(:google), :class => "zocial googleplus") %><br>
+    <%= link_to("使用Twitter登入", user_omniauth_authorize_path(:twitter), :class => "zocial twitter") %><br>
+    <hr>
+    <small>我們<b>不會</b>蒐集您的個人資料，登入僅為紀錄您的訂購資料之用，感謝您:)</small>
+  </div>
+<% end %>

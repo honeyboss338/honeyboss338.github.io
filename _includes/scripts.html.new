@@ -1,0 +1,51 @@
+<script src="{{ site.url }}/assets/js/jquery.js"></script>
+<script src="{{ site.url }}/assets/js/foundation.js"></script>
+<script src="{{ site.url }}/assets/js/basic.js"></script>
+<script src="{{ site.url }}/assets/js/jquery-ui-1.10.3.custom.js"></script>
+<script src="{{ site.url }}/assets/js/jquery.fancybox.js"></script>
+<script src="{{ site.url }}/assets/js/jquery.fancybox-buttons.js"></script>
+<script src="{{ site.url }}/assets/js/jquery.fancybox-media.js"></script>
+<script src="{{ site.url }}/assets/js/jquery.fancybox-thumbs.js"></script>
+<script src="{{ site.url }}/assets/js/jquery.knob.js"></script>
+<script src="{{ site.url }}/assets/js/jquery.flexslider.js"></script>
+<script src="{{ site.url }}/assets/js/jquery.lazyload.min.js"></script>
+<script src="{{ site.url }}/assets/js/jquery.quovolver.js"></script>
+<script src="{{ site.url }}/assets/js/jquery.ui.widget.js"></script>
+<script src="{{ site.url }}/assets/js/jquery.sausage.js"></script>
+
+<script src="{{ site.url }}/assets/js/sum_price.js"></script>
+<script src="{{ site.url }}/assets/js/tw_cn.js"></script>
+<script src="{{ site.url }}/assets/js/nicEdit.js"></script>
+<script src="{{ site.url }}/assets/js/jquery_nested_form.js"></script>
+<script src="{{ site.url }}/assets/js/jquery_ujs.js"></script>
+<script src="{{ site.url }}/assets/js/modernizr-2.6.2.min.js"></script>
+<script src="{{ site.url }}/assets/js/modernizr-3.3.1.custom.min.js"></script>
+    
+
+<script type="text/javascript">
+  $(function() {
+    $(document).foundation();  //foundation layout
+    $('#press_mini blockquote').quovolver();  //quovolver
+    $( "#deliver_deliver_at" ).datepicker({ minDate: "+1D", maxDate: "+7D" });  //datepicker
+    //$( "#deliver_deliver_at" ).datepicker( "option", "dateFormat", "yy/mm/dd" );
+    $('.flexslider').flexslider({animation: "slide"});
+    $(".fancybox").fancybox({openEffect  : 'none', closeEffect : 'none'});
+  });
+
+  //CSRF problem, http://stackoverflow.com/questions/7203304/warning-cant-verify-csrf-token-authenticity-rails
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
+  //image lazylode
+  $("img").lazyload({ 
+   threshold : 200, 
+   effect : "fadeIn"
+  });
+
+  $(function(){ $(document).foundation(); });
+</script>
+
+

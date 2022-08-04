@@ -1,0 +1,112 @@
+@import "base";
+
+//================================
+//  general
+//================================
+#home_news {
+  color: #666;
+  margin: 20px auto;
+  //background-color: white;
+  //border-top: 1px solid #ccc;
+  //border-bottom: 1px solid #ccc;
+  img {max-height: 100%;}
+  p {margin-bottom: 0;}
+  hr {margin: 5px 0;}
+  .columns {padding: 0;}
+  #home_news_txt {padding: 0 30px;}
+}
+
+#home_content_guide, #home_startup {
+  color: #555;
+  h4 {
+    border-bottom: 2px solid #ccc;
+  }
+  img {padding-top: 30px;}
+  @media (max-width: 768px) {
+    .large-4 {
+      img {max-height: 300px;}
+      text-align: center;
+    }
+  }
+}
+
+#item_blocks {
+  text-align: center;
+  img {
+    width: 80%;
+    padding: 15px;
+    &:hover {@include box-shadow(#cccc99 0 0 15px);}
+  }
+}
+
+#social_panel {
+  hr {margin: 5px;}
+  li {
+    color: #888;
+    list-style: none;
+    display: inline-block;
+  }
+}
+
+#buy_btns {
+  li {margin-bottom: 10px;}
+  a {
+    color: white;
+    padding: 5px 10px;
+    margin-right: 10px;
+  }
+  #buy-shop {
+    background-color: #99cc99;
+    &:hover {background-color: #99cc00;}
+  }
+  #buy-deliver {
+    background-color: #ffcc00;
+    &:hover {background-color: #ff6633;}
+  }
+}
+
+#social_btns {
+  $sbtn_width: 40px;
+  $sbtn_mob_width: 30px;
+  a {
+    width: $sbtn_width;
+    height: $sbtn_width;
+    display: inline-block;
+    background-size: 5*$sbtn_width 2*$sbtn_width;
+    background-repeat:no-repeat;
+    background-image: url($aws_static + '/5icons.png');
+  }
+  #soc-rss {
+    background-position: 0 (-$sbtn_width);
+    &:hover { background-position: 0 0; }
+  }
+  #soc-twitter {
+    background-position: (-$sbtn_width) (-$sbtn_width);
+    &:hover { background-position: (-$sbtn_width) 0; }
+  }
+  #soc-gplus {
+    background-position: 2*(-$sbtn_width) (-$sbtn_width);
+    &:hover { background-position: 2*(-$sbtn_width) 0; }
+  }
+  #soc-fb {
+    background-position: 3*(-$sbtn_width) (-$sbtn_width);
+    &:hover { background-position: 3*(-$sbtn_width) 0; }
+  }
+  #soc-plurk {
+    background-position: 4*(-$sbtn_width) (-$sbtn_width);
+    &:hover { background-position: 4*(-$sbtn_width) 0; }
+  }
+}
+
+#qa_panel {
+  .qa_q {
+    color: #999;
+    font-size: bold;
+    margin-bottom: 10px;
+  }
+  .qa_a {
+    color: #333;
+    margin-bottom: 30px;
+  }
+}
+

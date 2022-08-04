@@ -1,0 +1,74 @@
+---
+sitemap: false
+---
+
+@import "_base.scss";
+@import "foundation.scss";
+@import "banner.scss";
+@import "deliver.scss";
+@import "flexslider.scss";
+@import "home.scss";
+@import "jquery-ui-1.10.3.custom.scss";
+@import "jquery.fancybox-buttons.scss";
+@import "jquery.fancybox-thumbs.scss";
+@import "jquery.fancybox.scss";
+@import "layout.scss";
+@import "post.scss";
+@import "press.scss";
+@import "story.scss";
+@import "zocial.scss";
+
+
+//======================================================
+//  Overwrites
+//======================================================
+//overwrite foundation
+.top-bar {
+  margin-bottom: 0;
+}
+.top-bar-section .dropdown li label {
+  font-size: emCalc(15px);
+  font-weight: normal;
+}
+
+
+// responsive facebook iframe
+#fb-root {
+    display: none;
+}
+
+/* To fill the container and nothing else */
+#sidebar {
+  .fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+      width: 100% !important;
+  }
+}
+
+#widget_bounds {
+  border: 0 !important;
+}
+
+// consult
+#consult_answer {
+  height: 150px;
+}
+
+.row {
+  margin: auto;
+  max-width: 60em;
+}
+
+//======================================================
+//  Device Overwrites
+//======================================================
+// Mobile ( width < 510px )
+@media (max-width: 509px) {
+}
+
+// Pad ( 510px <= width < 1200px )
+@media (min-width: 510px) and (max-width: 1199px) {
+}
+
+// PC ( 1200px <= width )
+@media (min-width: 1200px) {
+}

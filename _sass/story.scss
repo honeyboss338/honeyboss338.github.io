@@ -1,0 +1,42 @@
+@import "base";
+
+//================================
+//  Home Banner
+//================================
+.story_img {
+  padding: 10px;
+  @include box-shadow(#555 1px 1px 8px);
+}
+
+#story_gallery {
+  text-align: center;
+  img {
+    max-height: 150px;
+  }
+  h6 {
+    color: #666;
+  }
+}
+
+.story_txt {
+  p {
+    text-indent: 2em;
+    margin-bottom: 1em;
+  }
+}
+
+@media (max-width: 509px) {
+  .story_img {
+    width: 100%;
+    margin: 20px 0;
+  }
+  .story_txt {padding: 10px;}
+}
+@media (min-width: 510px) {
+  .story_img {
+    max-width: 40%;
+    max-height: 400px;
+    margin: 20px;
+  }
+  .story_txt {padding: 30px;}
+}

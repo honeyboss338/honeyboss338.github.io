@@ -1,0 +1,168 @@
+@import "base";
+
+#infinite_chips {
+ margin-top: 50px;
+}
+
+.post_wrapper {
+  height: 400px;
+}
+
+.post {
+  height: 360px;
+  text-align: left;
+  background-color: #f9f9f9;
+  @include box-shadow(#ccc 0 2px 3px 1px);
+  .sbox_img {   
+    width: 100%;
+    height: 210px;
+    @include base_background(cover);
+  }
+  &:hover {
+    h3, p {
+      color: #00b0f4;
+    }
+  }
+  h3, p {
+    margin: 10px 0 0 0;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 5px;
+  }
+  p {
+    color: #666;
+    font-size: 14px;
+    padding: 0 5px;
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  }
+}
+
+.title_strip {
+  border-bottom: 2px solid #333;
+  margin-bottom: 10px;
+  .title_badge {
+    color: white;
+    background-color: #333;
+    padding: 5px 10px;
+    display: inline-block;
+  }
+}
+
+#post_show {
+  margin: 50px auto;
+  .post_main {
+    padding: 20px;
+  }
+  .post_panel, #___page_0 {
+    text-align: left;
+    background-color: white;
+    margin-bottom: 15px;
+    @include box-shadow(#ccc 0 2px 3px 1px);
+    img, iframe {
+      width: 100%;
+    }
+    .right {
+      color: #aaa;
+    }
+  }
+}
+
+#related_posts {
+  table {
+    border: 0 !important;
+  }
+}
+
+#social_likes {
+  @media (max-width: 509px) {display: block; }
+  * {
+    vertical-align: top;   
+    display: inline-block;
+  }
+  iframe {
+    max-height: 20px !important;
+    vertical-align: baseline;
+  }
+  #twit_btn iframe{width: 60px !important;}
+}
+
+#tag_cloud {
+  a {
+    padding: 2px 5px;
+    margin: 8px;
+  }
+}
+
+//=================================
+//  Tag Posts
+//=================================
+.tag_posts {
+  margin: 10px;
+  background-color: #f9f9f9;
+  padding-bottom: 5px;
+  @include box-shadow(#ccc 0 2px 3px 1px);
+  h4 {
+    margin: 0 auto 10px auto;
+    background-color: wheat;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  p {
+    padding: 5px 20px;
+  }
+}
+
+//=================================
+//  Cpanel
+//=================================
+#posts_cpanel {
+  img {
+    margin-right: 5px;
+  }
+}
+
+#post_published_wrap {
+  display: inline-block;
+  select { width: 100px; }
+  #post_published_at_1i { margin-left: -4px; }
+}
+
+.check_box_sea {
+  width: 100%;
+  border: solid 1px #ccc;
+  padding-right: 5px;
+  .checkbox {
+    display: inline-block;
+    label, input {
+      padding: 2px 4px;
+      margin: 0;
+      display: inline-block;
+    }  
+  }
+}
+
+.publish {color: darkgreen;}
+.draft {color: brown;}
+.pending {color: darkgoldenrod;}
+.black * {color: black;}
+.grey * {color: #666;}
+
+.nicEdit-selectTxt {
+  height: 24px !important;
+}
+.nicEdit-main {
+  overflow-y: scroll !important;
+  height: 600px;
+  white-space: pre;
+  background-color: white;
+  img {
+    max-width: 600px;
+  }
+}
+

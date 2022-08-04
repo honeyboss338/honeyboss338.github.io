@@ -1,0 +1,103 @@
+//====================================
+//  Parameters
+//====================================
+$nav_height: 30px;
+$aws_static: 'https://s3-ap-northeast-1.amazonaws.com/honibos/images';
+
+
+//====================================
+//  Colors
+//====================================
+$color_nav: darkseagreen;
+$color_nav_txt: brown;
+$color_blue: #5faae3;
+$color_red: #e55e48;
+$color_green: #8dc03c;
+
+//====================================
+//  Utilities
+//====================================
+//@import "compass/css3/border-radius";
+//usage: @include border-radius(5px); / @include border-right-radius(5px); / @include border-bottom-radius(5px);
+@mixin border-radius($value) {
+  -moz-border-radius: $value / $value;
+  -webkit-border-radius: $value $value;
+  border-radius: $value / $value; 
+}
+
+//@import "compass/css3/box-shadow";
+//usage: @include box-shadow(#555 1px 3px 15px); / @include box-shadow(#555 1px 3px 15px inset);
+@mixin box-shadow($value) {
+    -webkit-box-shadow: $value;
+    -moz-box-shadow: $value;
+    box-shadow: $value;
+}
+
+
+// @import "compass/css3/columns";
+//usage: @include column-count(3); @include column-rule(1px, solid, red);
+
+// @import "compass/css3/transform";
+//usage: http://compass-style.org/reference/compass/css3/transform/#mixin-rotate-source
+
+// @import "compass/css3/images";
+//usage: http://compass-style.org/examples/compass/css3/gradient/
+
+// @import "compass/css3/transition";
+//usage: set origin & hover width, then @include transition-property(width); @include transition-duration(2s);
+
+//====================================
+//  Custumize
+//====================================
+//usage: @include base_background(100%, 100%, 0, 0);
+@mixin base_background($hrat: 100%, $vrat: 100%, $hpos: center, $vpos: center) {
+  @if $hrat == 'cover' {
+    background-size: cover;
+  } @else {
+    background-size: $hrat $vrat;
+  }
+  background-position: $hpos $vpos;
+  background-repeat:no-repeat;
+}
+
+//usage: @include set_background("events/open-knowledge-header.jpg");
+@mixin set_background($img, $hrat: 100%, $vrat: 100%, $hpos: center, $vpos: center) {
+  background-image: url(image-path($img));
+  @include base_background($hrat, $vrat, $hpos, $vpos);
+}
+
+@mixin flat_stamp {
+  @include box-shadow(#888 1px 3px 5px 1px);
+  &:hover {@include box-shadow(#888 1px 3px 5px 3px);}
+  //@include border-radius(5px);
+  //@include box-shadow(#555 1px 3px 15px);
+}
+
+//usage: @include circle(100px, 1px);
+@mixin circle($rad:100px, $border:1px) {
+  width: $rad * 2;
+  height: $rad * 2;
+  border: $border solid white;
+  @include border-radius($rad);
+  @include box-shadow(#555 1px 3px 15px);
+}
+
+//====================================
+//  Animation
+//====================================
+//@-moz-document url-prefix(){.leadin-block h1 a{padding-top:4px;}}
+//@-webkit-keyframes animate-cloud{from{background-position:600px 100%;} to{background-position:0 100%;}}
+//@-moz-keyframes animate-cloud{from{background-position:600px 100%;} to{background-position:0 100%;}}
+//@-ms-keyframes animate-cloud{from{background-position:600px 100%;} to{background-position:0 100%;}}
+//@-o-keyframes animate-cloud{from{background-position:600px 100%;} to{background-position:0 100%;}}
+//.animate-cloud-key from{background-position:600px 100%;}
+//.animate-cloud-key to{background-position:0 100%;}
+//
+//@-webkit-keyframes animate-bot{from{margin-top:-120px;} 50%{margin-top:-110px;} to{margin-top:-120px;}}
+//@-moz-keyframes animate-bot{from{margin-top:-120px;} 50%{margin-top:-110px;} to{margin-top:-120px;}}
+//@-ms-keyframes animate-bot{from{margin-top:-120px;} 50%{margin-top:-110px;} to{margin-top:-120px;}}
+//@-o-keyframes animate-bot{from{margin-top:-120px;} 50%{margin-top:-110px;} to{margin-top:-120px;}}
+//.animate-bot-key from{margin-top:-120px;}
+//.animate-bot-key 50%{margin-top:-110px;}
+//.animate-bot-key to{margin-top:-120px;}
+
